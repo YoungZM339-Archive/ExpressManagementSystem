@@ -1,27 +1,35 @@
-# Express Management System
+# ExpressManagementSystem
 
-Experimental C/C++ coursework project for managing an express-delivery workflow.
+基于 C++17 的命令行快件管理课程项目。程序从本地配置文件加载用户和快件数据，提供登录后的寄件、收件、余额和快件状态相关交互，并在退出时写回数据。
 
-## Scope
+## 功能范围
 
-The project is intended for learning and demonstrating basic data structures, persistence, and management operations. It is not a production logistics platform.
+- 用户登录与用户信息维护。
+- 用户余额相关数据。
+- 发件人、收件人和快件信息。
+- 快件配送状态与快递员信息。
+- 基于本地配置文件的读写持久化。
 
-## Quick start
+## 构建
 
-Inspect the repository build files and source entry point, then compile with the project’s chosen compiler. Run with sample data first and keep generated files outside the repository.
+需要 CMake 3.24 或更高版本以及支持 C++17 的编译器。
 
-~~~bash
-# Adapt to the repository build configuration
-make
-~~~
+    cmake -S . -B build
+    cmake --build build
 
-## Suggested extension points
+从仓库根目录或保持相同数据目录结构的工作目录运行生成的 ExpressManagementSystem 可执行文件。
 
-- parcel and customer data model
-- create, query, update, and delivery-status operations
-- input validation and error handling
-- persistence and test fixtures
+## 数据文件
 
-## Status
+- UsersDir/Users.config：用户数据。
+- ItemsDir/Items.config：快件数据。
 
-Coursework/experimental code. Review authorization, validation, and data handling before using real records.
+程序启动时读取这些文件，退出时写回更新结果。运行前请复制并备份自己的测试数据，不要把真实个人信息或真实物流记录提交到版本控制。
+
+## 适用范围
+
+本项目用于练习 C++ 类设计、文件读写和命令行流程组织。它不包含生产物流系统所需的身份安全、并发处理、网络通信、可靠追踪、隐私合规或灾难恢复能力。
+
+## 许可证
+
+仓库当前未声明许可证。
